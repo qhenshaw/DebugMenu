@@ -1,32 +1,22 @@
 {
-  "displayName": "[Package Name]",
+  "displayName": "Debug Menu",
   "author": "Quin Henshaw",
   "version": "1.0.0",
-  "name": "com.qhenshaw.[packagename]",
-  "documentationUrl": "https://github.com/qhenshaw/[repourl]",
-  "changelogUrl": "https://github.com/qhenshaw/[repourl]/blob/main/CHANGELOG.md",
-  "licensesUrl": "https://github.com/qhenshaw/[repourl]/blob/main/LICENSE.md",
-  "description": "[Description here]",
+  "name": "com.qhenshaw.debugmenu",
+  "documentationUrl": "https://github.com/qhenshaw/debugmenu",
+  "changelogUrl": "https://github.com/qhenshaw/debugmenu/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/qhenshaw/debugmenu/blob/main/LICENSE.md",
+  "description": "An extensible debug menu for Unity3D.",
   "unity": "2020.1",
   "dependencies": {
-    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.textmeshpro": "3.0.0",
 	"com.unity.ugui": "1.0.0"
   },
   "samples": [
 	{
-      "displayName": "[Sample 1 display name]",
-      "description": "[Sample 1 description]",
-      "path": "Samples~/[Sample1Location]"
-    },
-    {
-      "displayName": "[Sample 2 display name]",
-      "description": "[Sample 2 description]",
-      "path": "Samples~/[Sample2Location]"
-    },
-	{
-      "displayName": "[Sample 3 display name]",
-      "description": "[Sample 3 description]",
-      "path": "Samples~/[Sample3Location]"
+      "displayName": "Demo Menu",
+      "description": "An example Debug Menu prefab, ready to drop into your scenes.",
+      "path": "Samples~/DemoMenu"
     }
   ]
 }
