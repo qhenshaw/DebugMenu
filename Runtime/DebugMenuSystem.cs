@@ -60,6 +60,7 @@ namespace DebugMenu
             _commands = new Dictionary<string, List<DebugCommandPair>>();
         }
 
+#if DEBUG_MENU
         private void Update()
         {
             if (Input.GetKeyDown(_toggleKey))
@@ -68,6 +69,7 @@ namespace DebugMenu
                 else Close();
             }
         }
+#endif
 
         private void Open()
         {
@@ -106,6 +108,7 @@ namespace DebugMenu
 
         public void RegisterObject(object component)
         {
+#if DEBUG_MENU
             var methods = component.GetType().
                             GetMethods(BindingFlags.Public | BindingFlags.Instance).
                             Where(x => x.GetCustomAttributes(typeof(DebugCommandAttribute), true).Any());
@@ -116,10 +119,12 @@ namespace DebugMenu
                 if (!_commands.ContainsKey(att.Name)) _commands.Add(att.Name, new List<DebugCommandPair>());
                 _commands[att.Name].Add(new DebugCommandPair(component, method));
             }
+#endif
         }
 
         public void DeregisterObject(object component)
         {
+#if DEBUG_MENU
             var methods = component.GetType().
                             GetMethods(BindingFlags.Public | BindingFlags.Instance).
                             Where(x => x.GetCustomAttributes(typeof(DebugCommandAttribute), true).Any());
@@ -142,6 +147,7 @@ namespace DebugMenu
             }
 
             _commands = _commands.Where(x => x.Value.Count() > 0).ToDictionary(x => x.Key, x => x.Value);
+#endif
         }
     }
 }
