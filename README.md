@@ -14,6 +14,10 @@ Use the Package Manager and use Add package from git URL, using the following:
 https://github.com/qhenshaw/DebugMenu.git
 ```
 
+> [!WARNING]  
+> The menu is enabled/disabled by adding ```DEBUG_MENU``` to Unity's ```Project Settings > Player > Scripting Define Symbols```  
+> This allows you to strip debug controls from release builds.
+
 ## Usage
 Add the Demo Menu sample and drop the DebugSystemCanvas prefab into your scene.  
 Import the DebugMenu namespace and register your object using ``RegisterObject`` and ``DeregisterObject.``  
