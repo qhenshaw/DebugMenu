@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace DebugMenu
 {
@@ -42,6 +43,9 @@ namespace DebugMenu
         [SerializeField] private Transform _panel;
         [SerializeField] private Transform _buttonLayout;
         [SerializeField] private Button _buttonPrefab;
+        [SerializeField] private bool _pauseOnOpen = false;
+        [SerializeField] private string _openActionMap = "UI";
+        [SerializeField] private string _closeActionMap = "Player";
 
         public static DebugMenuSystem Instance { get; private set; }
 
@@ -87,10 +91,14 @@ namespace DebugMenu
                 }
             }
 
+            EventSystem.current.SetSelectedGameObject(null);
             if (_buttonLayout.childCount >= 1) EventSystem.current.SetSelectedGameObject(_buttonLayout.GetChild(0).gameObject);
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            SwitchActionhMaps(_openActionMap);
+            if (_pauseOnOpen) Time.timeScale = 0f;
         }
 
         private void Close()
@@ -104,6 +112,20 @@ namespace DebugMenu
 
             Cursor.lockState = _closedCursorMode;
             Cursor.visible = _closedCursorVisible;
+
+            SwitchActionhMaps(_closeActionMap);
+            if (_pauseOnOpen) Time.timeScale = 1f;
+        }
+
+        public void SwitchActionhMaps(string newMap)
+        {
+            if(string.IsNullOrEmpty(newMap)) return;
+            PlayerInput[] playerInputs = FindObjectsByType<PlayerInput>(FindObjectsSortMode.None);
+            for (int i = 0; i < playerInputs.Length; i++)
+            {
+                PlayerInput playerInput = playerInputs[i];
+                playerInput.SwitchCurrentActionMap(newMap);
+            }
         }
 
         public void RegisterObject(object component)

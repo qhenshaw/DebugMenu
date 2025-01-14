@@ -1,7 +1,7 @@
 {
   "displayName": "Debug Menu",
   "author": "Quin Henshaw",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "name": "com.qhenshaw.debugmenu",
   "documentationUrl": "https://github.com/qhenshaw/debugmenu",
   "changelogUrl": "https://github.com/qhenshaw/debugmenu/blob/main/CHANGELOG.md",
@@ -10,7 +10,8 @@
   "unity": "2020.1",
   "dependencies": {
     "com.unity.textmeshpro": "3.0.0",
-	"com.unity.ugui": "1.0.0"
+	  "com.unity.ugui": "1.0.0",
+    "com.unity.inputsystem": "1.0.0"
   },
   "samples": [
 	{

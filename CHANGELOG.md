@@ -1,4 +1,7 @@
 # Changelog
+[1.2.0] - 2025-01-14
+- Fixed issue with PlayerInput action maps being set wrong when opening
+- Added option to pause game on open
 
 [1.1.0] - 2023-08-19
 - Added DEBU_MENU scripting define option to enable/disable controls
